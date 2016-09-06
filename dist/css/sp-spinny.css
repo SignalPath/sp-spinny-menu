@@ -1,0 +1,699 @@
+/**
+ * A spinny menu directive for AngularJS
+ * @version v1.0.0
+ * @link https://github.com/signalpath/sp-spinny-menu
+ * @license MIT License, http://www.opensource.org/licenses/MIT
+ */
+@keyframes rot-in5-5 {
+  from {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; }
+  to {
+    transform: rotate(-270deg) translate(-43px) rotate(270deg);
+    opacity: 1; } }
+
+@keyframes rot-out5-5 {
+  from {
+    transform: rotate(-270deg) translate(-43px) rotate(270deg);
+    opacity: 1; }
+  to {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; } }
+
+@keyframes contracting5-5 {
+  from {
+    transform: rotate(-270deg) translate(-43px) rotate(270deg); }
+  to {
+    transform: translate(0); } }
+
+@keyframes expanding5-5 {
+  from {
+    transform: translate(0); }
+  to {
+    transform: rotate(-270deg) translate(-43px) rotate(270deg); } }
+
+@keyframes rot-in4-5 {
+  from {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; }
+  to {
+    transform: rotate(-225deg) translate(-43px) rotate(225deg);
+    opacity: 1; } }
+
+@keyframes rot-out4-5 {
+  from {
+    transform: rotate(-225deg) translate(-43px) rotate(225deg);
+    opacity: 1; }
+  to {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; } }
+
+@keyframes contracting4-5 {
+  from {
+    transform: rotate(-225deg) translate(-43px) rotate(225deg); }
+  to {
+    transform: translate(0); } }
+
+@keyframes expanding4-5 {
+  from {
+    transform: translate(0); }
+  to {
+    transform: rotate(-225deg) translate(-43px) rotate(225deg); } }
+
+@keyframes rot-in3-5 {
+  from {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; }
+  to {
+    transform: rotate(-180deg) translate(-43px) rotate(180deg);
+    opacity: 1; } }
+
+@keyframes rot-out3-5 {
+  from {
+    transform: rotate(-180deg) translate(-43px) rotate(180deg);
+    opacity: 1; }
+  to {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; } }
+
+@keyframes contracting3-5 {
+  from {
+    transform: rotate(-180deg) translate(-43px) rotate(180deg); }
+  to {
+    transform: translate(0); } }
+
+@keyframes expanding3-5 {
+  from {
+    transform: translate(0); }
+  to {
+    transform: rotate(-180deg) translate(-43px) rotate(180deg); } }
+
+@keyframes rot-in2-5 {
+  from {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; }
+  to {
+    transform: rotate(-135deg) translate(-43px) rotate(135deg);
+    opacity: 1; } }
+
+@keyframes rot-out2-5 {
+  from {
+    transform: rotate(-135deg) translate(-43px) rotate(135deg);
+    opacity: 1; }
+  to {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; } }
+
+@keyframes contracting2-5 {
+  from {
+    transform: rotate(-135deg) translate(-43px) rotate(135deg); }
+  to {
+    transform: translate(0); } }
+
+@keyframes expanding2-5 {
+  from {
+    transform: translate(0); }
+  to {
+    transform: rotate(-135deg) translate(-43px) rotate(135deg); } }
+
+@keyframes rot-in1-5 {
+  from {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; }
+  to {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 1; } }
+
+@keyframes rot-out1-5 {
+  from {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 1; }
+  to {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; } }
+
+@keyframes contracting1-5 {
+  from {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg); }
+  to {
+    transform: translate(0); } }
+
+@keyframes expanding1-5 {
+  from {
+    transform: translate(0); }
+  to {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg); } }
+
+@keyframes rot-in4-4 {
+  from {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; }
+  to {
+    transform: rotate(-247.5deg) translate(-43px) rotate(247.5deg);
+    opacity: 1; } }
+
+@keyframes rot-out4-4 {
+  from {
+    transform: rotate(-247.5deg) translate(-43px) rotate(247.5deg);
+    opacity: 1; }
+  to {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; } }
+
+@keyframes contracting4-4 {
+  from {
+    transform: rotate(-247.5deg) translate(-43px) rotate(247.5deg); }
+  to {
+    transform: translate(0); } }
+
+@keyframes expanding4-4 {
+  from {
+    transform: translate(0); }
+  to {
+    transform: rotate(-247.5deg) translate(-43px) rotate(247.5deg); } }
+
+@keyframes rot-in3-4 {
+  from {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; }
+  to {
+    transform: rotate(-202.5deg) translate(-43px) rotate(202.5deg);
+    opacity: 1; } }
+
+@keyframes rot-out3-4 {
+  from {
+    transform: rotate(-202.5deg) translate(-43px) rotate(202.5deg);
+    opacity: 1; }
+  to {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; } }
+
+@keyframes contracting3-4 {
+  from {
+    transform: rotate(-202.5deg) translate(-43px) rotate(202.5deg); }
+  to {
+    transform: translate(0); } }
+
+@keyframes expanding3-4 {
+  from {
+    transform: translate(0); }
+  to {
+    transform: rotate(-202.5deg) translate(-43px) rotate(202.5deg); } }
+
+@keyframes rot-in2-4 {
+  from {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; }
+  to {
+    transform: rotate(-157.5deg) translate(-43px) rotate(157.5deg);
+    opacity: 1; } }
+
+@keyframes rot-out2-4 {
+  from {
+    transform: rotate(-157.5deg) translate(-43px) rotate(157.5deg);
+    opacity: 1; }
+  to {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; } }
+
+@keyframes contracting2-4 {
+  from {
+    transform: rotate(-157.5deg) translate(-43px) rotate(157.5deg); }
+  to {
+    transform: translate(0); } }
+
+@keyframes expanding2-4 {
+  from {
+    transform: translate(0); }
+  to {
+    transform: rotate(-157.5deg) translate(-43px) rotate(157.5deg); } }
+
+@keyframes rot-in1-4 {
+  from {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; }
+  to {
+    transform: rotate(-112.5deg) translate(-43px) rotate(112.5deg);
+    opacity: 1; } }
+
+@keyframes rot-out1-4 {
+  from {
+    transform: rotate(-112.5deg) translate(-43px) rotate(112.5deg);
+    opacity: 1; }
+  to {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; } }
+
+@keyframes contracting1-4 {
+  from {
+    transform: rotate(-112.5deg) translate(-43px) rotate(112.5deg); }
+  to {
+    transform: translate(0); } }
+
+@keyframes expanding1-4 {
+  from {
+    transform: translate(0); }
+  to {
+    transform: rotate(-112.5deg) translate(-43px) rotate(112.5deg); } }
+
+@keyframes rot-in3-3 {
+  from {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; }
+  to {
+    transform: rotate(-225deg) translate(-43px) rotate(225deg);
+    opacity: 1; } }
+
+@keyframes rot-out3-3 {
+  from {
+    transform: rotate(-225deg) translate(-43px) rotate(225deg);
+    opacity: 1; }
+  to {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; } }
+
+@keyframes contracting3-3 {
+  from {
+    transform: rotate(-225deg) translate(-43px) rotate(225deg); }
+  to {
+    transform: translate(0); } }
+
+@keyframes expanding3-3 {
+  from {
+    transform: translate(0); }
+  to {
+    transform: rotate(-225deg) translate(-43px) rotate(225deg); } }
+
+@keyframes rot-in2-3 {
+  from {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; }
+  to {
+    transform: rotate(-180deg) translate(-43px) rotate(180deg);
+    opacity: 1; } }
+
+@keyframes rot-out2-3 {
+  from {
+    transform: rotate(-180deg) translate(-43px) rotate(180deg);
+    opacity: 1; }
+  to {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; } }
+
+@keyframes contracting2-3 {
+  from {
+    transform: rotate(-180deg) translate(-43px) rotate(180deg); }
+  to {
+    transform: translate(0); } }
+
+@keyframes expanding2-3 {
+  from {
+    transform: translate(0); }
+  to {
+    transform: rotate(-180deg) translate(-43px) rotate(180deg); } }
+
+@keyframes rot-in1-3 {
+  from {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; }
+  to {
+    transform: rotate(-135deg) translate(-43px) rotate(135deg);
+    opacity: 1; } }
+
+@keyframes rot-out1-3 {
+  from {
+    transform: rotate(-135deg) translate(-43px) rotate(135deg);
+    opacity: 1; }
+  to {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; } }
+
+@keyframes contracting1-3 {
+  from {
+    transform: rotate(-135deg) translate(-43px) rotate(135deg); }
+  to {
+    transform: translate(0); } }
+
+@keyframes expanding1-3 {
+  from {
+    transform: translate(0); }
+  to {
+    transform: rotate(-135deg) translate(-43px) rotate(135deg); } }
+
+@keyframes rot-in2-2 {
+  from {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; }
+  to {
+    transform: rotate(-202.5deg) translate(-43px) rotate(202.5deg);
+    opacity: 1; } }
+
+@keyframes rot-out2-2 {
+  from {
+    transform: rotate(-202.5deg) translate(-43px) rotate(202.5deg);
+    opacity: 1; }
+  to {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; } }
+
+@keyframes contracting2-2 {
+  from {
+    transform: rotate(-202.5deg) translate(-43px) rotate(202.5deg); }
+  to {
+    transform: translate(0); } }
+
+@keyframes expanding2-2 {
+  from {
+    transform: translate(0); }
+  to {
+    transform: rotate(-202.5deg) translate(-43px) rotate(202.5deg); } }
+
+@keyframes rot-in1-2 {
+  from {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; }
+  to {
+    transform: rotate(-157.5deg) translate(-43px) rotate(157.5deg);
+    opacity: 1; } }
+
+@keyframes rot-out1-2 {
+  from {
+    transform: rotate(-157.5deg) translate(-43px) rotate(157.5deg);
+    opacity: 1; }
+  to {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; } }
+
+@keyframes contracting1-2 {
+  from {
+    transform: rotate(-157.5deg) translate(-43px) rotate(157.5deg); }
+  to {
+    transform: translate(0); } }
+
+@keyframes expanding1-2 {
+  from {
+    transform: translate(0); }
+  to {
+    transform: rotate(-157.5deg) translate(-43px) rotate(157.5deg); } }
+
+@keyframes rot-in1-1 {
+  from {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; }
+  to {
+    transform: rotate(-180deg) translate(-43px) rotate(180deg);
+    opacity: 1; } }
+
+@keyframes rot-out1-1 {
+  from {
+    transform: rotate(-180deg) translate(-43px) rotate(180deg);
+    opacity: 1; }
+  to {
+    transform: rotate(-90deg) translate(-43px) rotate(90deg);
+    opacity: 0; } }
+
+@keyframes contracting1-1 {
+  from {
+    transform: rotate(-180deg) translate(-43px) rotate(180deg); }
+  to {
+    transform: translate(0); } }
+
+@keyframes expanding1-1 {
+  from {
+    transform: translate(0); }
+  to {
+    transform: rotate(-180deg) translate(-43px) rotate(180deg); } }
+
+.icon-button {
+  position: relative;
+  display: inline-block;
+  background: #fff;
+  color: #99a6b1;
+  border: solid 1px #dfe6ed;
+  border-radius: 50%;
+  width: 27px;
+  height: 27px;
+  text-align: center;
+  font-size: 15px;
+  cursor: pointer; }
+  .icon-button.icon-button-med {
+    width: 35px;
+    height: 35px;
+    line-height: 40px; }
+    .icon-button.icon-button-med.active:before {
+      width: 35px;
+      height: 35px; }
+    .icon-button.icon-button-med > .fa {
+      line-height: 40px; }
+  .icon-button.icon-button-large {
+    width: 50px;
+    height: 50px; }
+    .icon-button.icon-button-large > .fa {
+      font-size: 23px; }
+  .icon-button > .fa {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 27px; }
+  .icon-button.active, .icon-button:hover {
+    background: #1c899c;
+    color: #fff;
+    border-color: #156a7e; }
+  .icon-button.active {
+    -webkit-box-shadow: inset -2px 1px 2px #156a7e;
+    -moz-box-shadow: inset -2px 1px 2px #156a7e;
+    box-shadow: inset -2px 1px 2px #156a7e; }
+    .icon-button.active:before {
+      position: absolute;
+      top: -1px;
+      left: 1px;
+      content: '';
+      width: 27px;
+      height: 27px;
+      border: none;
+      -webkit-box-shadow: -1px 1px 0 0 #d0d5d9;
+      -moz-box-shadow: -1px 1px 0 0 #d0d5d9;
+      box-shadow: -1px 1px 0 0 #d0d5d9;
+      border-radius: 50%; }
+  .icon-button.disabled, .icon-button.disabled.active, .icon-button.disabled:hover {
+    background: #f9f9f9;
+    color: #d0d5d9;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-color: #dfe6ed; }
+  .icon-button.icon-only {
+    background: none;
+    border: 0; }
+    .icon-button.icon-only:hover {
+      background: none;
+      border-color: transparent;
+      -webkit-box-shadow: inset 0 0 0 transparent;
+      -moz-box-shadow: inset 0 0 0 transparent;
+      box-shadow: inset 0 0 0 transparent;
+      color: #156a7e; }
+
+.tool-icon {
+  text-align: center;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  z-index: 1;
+  margin-top: 1em; }
+  .tool-icon .return-button {
+    position: relative; }
+    .tool-icon .return-button:after {
+      display: inline-block;
+      font-family: 'FontAwesome';
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: absolute;
+      content: '\f112';
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px; }
+  .no-margin .tool-icon {
+    margin-top: 0; }
+  .tool-icon .icon-button.active:before {
+    width: 32px;
+    height: 32px; }
+  .tool-icon .icon-button-large.active:before {
+    width: 50px;
+    height: 50px; }
+  .tool-icon .tool-icon-button {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 9px;
+    top: 9px; }
+    .tool-icon .tool-icon-button.ng-hide-add, .tool-icon .tool-icon-button.ng-hide-remove {
+      display: block !important; }
+    .tool-icon .tool-icon-button.tool-icon-button-5-5 {
+      z-index: -1;
+      animation: rot-in5-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.ng-hide.tool-icon-button-5-5 {
+      animation: rot-out5-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-5-5.contracting {
+      animation: contracting5-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-5-5.expanding {
+      animation: expanding5-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-5-5.closing {
+      animation: 0s; }
+    .tool-icon .tool-icon-button.tool-icon-button-4-5 {
+      z-index: -1;
+      animation: rot-in4-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.ng-hide.tool-icon-button-4-5 {
+      animation: rot-out4-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-4-5.contracting {
+      animation: contracting4-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-4-5.expanding {
+      animation: expanding4-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-4-5.closing {
+      animation: 0s; }
+    .tool-icon .tool-icon-button.tool-icon-button-3-5 {
+      z-index: -1;
+      animation: rot-in3-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.ng-hide.tool-icon-button-3-5 {
+      animation: rot-out3-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-3-5.contracting {
+      animation: contracting3-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-3-5.expanding {
+      animation: expanding3-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-3-5.closing {
+      animation: 0s; }
+    .tool-icon .tool-icon-button.tool-icon-button-2-5 {
+      z-index: -1;
+      animation: rot-in2-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.ng-hide.tool-icon-button-2-5 {
+      animation: rot-out2-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-2-5.contracting {
+      animation: contracting2-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-2-5.expanding {
+      animation: expanding2-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-2-5.closing {
+      animation: 0s; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-5 {
+      z-index: -1;
+      animation: rot-in1-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.ng-hide.tool-icon-button-1-5 {
+      animation: rot-out1-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-5.contracting {
+      animation: contracting1-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-5.expanding {
+      animation: expanding1-5 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-5.closing {
+      animation: 0s; }
+    .tool-icon .tool-icon-button.tool-icon-button-4-4 {
+      z-index: -1;
+      animation: rot-in4-4 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.ng-hide.tool-icon-button-4-4 {
+      animation: rot-out4-4 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-4-4.contracting {
+      animation: contracting4-4 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-4-4.expanding {
+      animation: expanding4-4 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-4-4.closing {
+      animation: 0s; }
+    .tool-icon .tool-icon-button.tool-icon-button-3-4 {
+      z-index: -1;
+      animation: rot-in3-4 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.ng-hide.tool-icon-button-3-4 {
+      animation: rot-out3-4 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-3-4.contracting {
+      animation: contracting3-4 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-3-4.expanding {
+      animation: expanding3-4 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-3-4.closing {
+      animation: 0s; }
+    .tool-icon .tool-icon-button.tool-icon-button-2-4 {
+      z-index: -1;
+      animation: rot-in2-4 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.ng-hide.tool-icon-button-2-4 {
+      animation: rot-out2-4 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-2-4.contracting {
+      animation: contracting2-4 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-2-4.expanding {
+      animation: expanding2-4 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-2-4.closing {
+      animation: 0s; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-4 {
+      z-index: -1;
+      animation: rot-in1-4 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.ng-hide.tool-icon-button-1-4 {
+      animation: rot-out1-4 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-4.contracting {
+      animation: contracting1-4 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-4.expanding {
+      animation: expanding1-4 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-4.closing {
+      animation: 0s; }
+    .tool-icon .tool-icon-button.tool-icon-button-3-3 {
+      z-index: -1;
+      animation: rot-in3-3 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.ng-hide.tool-icon-button-3-3 {
+      animation: rot-out3-3 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-3-3.contracting {
+      animation: contracting3-3 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-3-3.expanding {
+      animation: expanding3-3 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-3-3.closing {
+      animation: 0s; }
+    .tool-icon .tool-icon-button.tool-icon-button-2-3 {
+      z-index: -1;
+      animation: rot-in2-3 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.ng-hide.tool-icon-button-2-3 {
+      animation: rot-out2-3 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-2-3.contracting {
+      animation: contracting2-3 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-2-3.expanding {
+      animation: expanding2-3 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-2-3.closing {
+      animation: 0s; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-3 {
+      z-index: -1;
+      animation: rot-in1-3 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.ng-hide.tool-icon-button-1-3 {
+      animation: rot-out1-3 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-3.contracting {
+      animation: contracting1-3 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-3.expanding {
+      animation: expanding1-3 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-3.closing {
+      animation: 0s; }
+    .tool-icon .tool-icon-button.tool-icon-button-2-2 {
+      z-index: -1;
+      animation: rot-in2-2 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.ng-hide.tool-icon-button-2-2 {
+      animation: rot-out2-2 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-2-2.contracting {
+      animation: contracting2-2 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-2-2.expanding {
+      animation: expanding2-2 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-2-2.closing {
+      animation: 0s; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-2 {
+      z-index: -1;
+      animation: rot-in1-2 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.ng-hide.tool-icon-button-1-2 {
+      animation: rot-out1-2 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-2.contracting {
+      animation: contracting1-2 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-2.expanding {
+      animation: expanding1-2 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-2.closing {
+      animation: 0s; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-1 {
+      z-index: -1;
+      animation: rot-in1-1 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.ng-hide.tool-icon-button-1-1 {
+      animation: rot-out1-1 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-1.contracting {
+      animation: contracting1-1 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-1.expanding {
+      animation: expanding1-1 0.5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards; }
+    .tool-icon .tool-icon-button.tool-icon-button-1-1.closing {
+      animation: 0s; }

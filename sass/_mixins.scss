@@ -1,0 +1,59 @@
+@mixin icon {
+    display: inline-block;
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin box-shadow($shadow...) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+@mixin rotation-keyframes($item-in-set, $total) {
+    $start-angle: 90deg;
+    $per-step: 45deg;
+    $offset: (5 - $total) / 2 * $per-step;
+    $current-step: $start-angle + $offset + ($per-step * ($item-in-set - 1));
+
+    @keyframes rot-in#{$item-in-set}-#{$total} {
+        from {
+            transform: rotate(-90deg) translate(-43px) rotate(90deg);
+            opacity: 0;
+        }
+        to {
+            transform: rotate(-1 * $current-step) translate(-43px) rotate($current-step);
+            opacity: 1;
+        }
+    }
+    @keyframes rot-out#{$item-in-set}-#{$total} {
+        from {
+            transform: rotate(-1 * $current-step) translate(-43px) rotate($current-step);
+            opacity: 1;
+        }
+        to {
+            transform: rotate(-90deg) translate(-43px) rotate(90deg);
+            opacity: 0;
+        }
+    }
+    @keyframes contracting#{$item-in-set}-#{$total} {
+        from {
+            transform: rotate(-1 * $current-step) translate(-43px) rotate($current-step);
+        }
+        to {
+            transform: translate(0);
+        }
+    }
+    @keyframes expanding#{$item-in-set}-#{$total} {
+        from {
+            transform: translate(0);
+        }
+        to {
+            transform: rotate(-1 * $current-step) translate(-43px) rotate($current-step);
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<div class="tool-icon" ng-click="$event.stopPropagation(); tools.toggle()">
+    <div class="icon-button icon-button-large"
+         ng-class="{
+            'active': tools.active,
+            'return-button': tools.childrenActive}">
+        <i ng-if="!tools.childrenActive" class="fa fa-wrench"></i>
+        <i ng-if="tools.childrenActive" class="fa" ng-class="['fa-' + tools.activeButton.icon]"></i>
+    </div>
+    <div ng-repeat="button in tools.currentButtons"
+         ng-show="tools.active"
+         ng-click="tools.clickTool(button, $event)"
+         class="fan-animate ng-hide icon-button tool-icon-button"
+         ng-class="tools.getButtonClass(button, $index)">
+        <i class="fa fa-{{button.icon}}"></i></div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "name": "sp-spinny-menu",
+  "description": "A spinny menu directive for AngularJS",
+  "version": "1.0.0",
+  "ignore": [
+    "src",
+    "test",
+    ".bowerrc",
+    ".gitignore",
+    ".jshintrc",
+    ".jscsrc",
+    "bower.json",
+    "gruntfile.js",
+    "package.json",
+    "karma.conf.js",
+    "Gulpfile.js",
+    "paths.js"
+  ],
+  "homepage": "https://github.com/signalpath/sp-spinny-menu",
+  "license": "MIT License, http://www.opensource.org/licenses/MIT",
+  "private": false,
+  "dependencies": {
+    "angular": "1.4.9",
+    "angular-fontawesome": "1.0.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.4.10"
+  },
+  "resolutions": {
+    "angular": "1.4.9"
+  }
+}

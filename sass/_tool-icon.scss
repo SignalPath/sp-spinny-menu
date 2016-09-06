@@ -1,0 +1,178 @@
+$muted-text: #99a6b1;
+$disabled-icon-background: #f9f9f9;
+$disabled-icon-text: #d0d5d9;
+$active-highlight2: #1c899c;
+$dark-border: #156a7e;
+$light-border: #dfe6ed;
+
+@for $total from 5 through 1 {
+    @for $item-in-set from $total through 1 {
+        @include rotation-keyframes($item-in-set, $total);
+    }
+}
+
+$big-button-wh: 50px;
+$sm-button-wh: 32px;
+$mid-point-lt: ($big-button-wh/2) - ($sm-button-wh/2);
+
+.icon-button {
+    position: relative;
+    display: inline-block;
+    background: #fff;
+    color: $muted-text;
+    border: solid 1px $light-border;
+    border-radius: 50%;
+    width: 27px;
+    height: 27px;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+
+    &.icon-button-med {
+        width: 35px;
+        height: 35px;
+        line-height: 40px;
+
+        &.active:before {
+            width: 35px;
+            height: 35px;
+        }
+
+        &> .fa {
+            line-height: 40px;
+        }
+    }
+    &.icon-button-large {
+        width: 50px;
+        height: 50px;
+
+        &> .fa {
+            font-size: 23px;
+        }
+    }
+
+    &> .fa {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        line-height: 27px;
+    }
+
+    &.active,
+    &:hover {
+        background: $active-highlight2;
+        color: #fff;
+        border-color: $dark-border;
+    }
+
+    &.active {
+        @include box-shadow(inset -2px 1px 2px #156a7e);
+
+        &:before {
+            position: absolute;
+            top: -1px;
+            left: 1px;
+            content: '';
+            width: 27px;
+            height: 27px;
+            border: none;
+            @include box-shadow(-1px 1px 0 0 #d0d5d9);
+            border-radius: 50%;
+        }
+    }
+
+    &.disabled,
+    &.disabled.active,
+    &.disabled:hover {
+        background: $disabled-icon-background;
+        color: $disabled-icon-text;
+        @include box-shadow(none);
+        border-color: $light-border;
+    }
+
+    &.icon-only {
+        background: none;
+        border: 0;
+
+        &:hover {
+            background: none;
+            border-color: transparent;
+            @include box-shadow(inset 0 0 0 transparent);
+            color: $dark-border;
+        }
+    }
+}
+
+.tool-icon {
+    text-align: center;
+    position: relative;
+    width: $big-button-wh;
+    height: $big-button-wh;
+    z-index: 1;
+    margin-top: 1em;
+
+    & .return-button {
+        position: relative;
+
+        &:after {
+            @include icon;
+            position: absolute;
+            content: '\f112';
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+        }
+    }
+
+    .no-margin & {
+        margin-top: 0;
+    }
+
+    & .icon-button.active:before {
+        width: $sm-button-wh;
+        height: $sm-button-wh;
+    }
+
+    & .icon-button-large.active:before {
+        width: $big-button-wh;
+        height: $big-button-wh;
+    }
+
+    & .tool-icon-button {
+        position: absolute;
+        width: $sm-button-wh;
+        height: $sm-button-wh;
+        left: $mid-point-lt;
+        top: $mid-point-lt;
+
+        &.ng-hide-add, &.ng-hide-remove {
+            display: block !important;
+        }
+
+        @for $total from 5 through 1 {
+            @for $item-in-set from $total through 1 {
+                &.tool-icon-button-#{$item-in-set}-#{$total} {
+                    z-index: -1;
+                    animation: rot-in#{$item-in-set}-#{$total} .5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards;
+                }
+
+                &.ng-hide.tool-icon-button-#{$item-in-set}-#{$total} {
+                    animation: rot-out#{$item-in-set}-#{$total} .5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards;
+                }
+
+                &.tool-icon-button-#{$item-in-set}-#{$total}.contracting {
+                    animation: contracting#{$item-in-set}-#{$total} .5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards;
+                }
+
+                &.tool-icon-button-#{$item-in-set}-#{$total}.expanding {
+                    animation: expanding#{$item-in-set}-#{$total} .5s 1 cubic-bezier(0.24, -0.72, 0.74, 1.6) forwards;
+                }
+
+                &.tool-icon-button-#{$item-in-set}-#{$total}.closing {
+                    animation: 0s;
+                }
+            }
+        }
+    }
+}
