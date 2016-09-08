@@ -1,0 +1,11 @@
+src/
+test/
+.bowerrc
+.gitignore
+.jshintrc
+.jscsrc
+.npmignore
+package.json
+karma.conf.js
+Gulpfile.js
+paths.js

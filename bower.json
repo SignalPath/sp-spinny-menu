@@ -9,9 +9,8 @@
     ".gitignore",
     ".jshintrc",
     ".jscsrc",
+    ".npmignore",
     "bower.json",
-    "gruntfile.js",
-    "package.json",
     "karma.conf.js",
     "Gulpfile.js",
     "paths.js"
