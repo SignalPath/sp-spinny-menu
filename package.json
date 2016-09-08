@@ -1,6 +1,6 @@
 {
   "name": "sp-spinny-menu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A spinny menu directive for AngularJS",
   "repository": "https://github.com/signalpath/sp-spinny-menu",
   "license": "MIT License, http://www.opensource.org/licenses/MIT",
