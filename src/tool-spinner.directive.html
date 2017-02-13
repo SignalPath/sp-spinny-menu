@@ -1,5 +1,6 @@
 <div class="tool-icon" ng-click="$event.stopPropagation(); tools.toggle()">
     <div class="icon-button icon-button-large"
+         title="{{tools.mainTitleText()}}"
          ng-class="{
             'active': tools.active,
             'return-button': tools.childrenActive}">
@@ -10,6 +11,7 @@
          ng-show="tools.active"
          ng-click="tools.clickTool(button, $event)"
          class="fan-animate ng-hide icon-button tool-icon-button"
-         ng-class="tools.getButtonClass(button, $index)">
+         ng-class="tools.getButtonClass(button, $index)"
+         title="{{button.title}}">
         <i class="fa fa-{{button.icon}}"></i></div>
 </div>
