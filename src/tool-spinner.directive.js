@@ -1,4 +1,4 @@
-(function() {
+;(function() {
     'use strict';
 
     angular
@@ -22,6 +22,7 @@
         vm.close = close;
         vm.clickTool = clickTool;
         vm.getButtonClass = getButtonClass;
+        vm.mainTitleText = mainTitleText;
 
         vm.currentButtons = $scope.buttons;
 
@@ -86,6 +87,18 @@
             vm.childrenActive = !!button;
             vm.activeButton = button;
         }
+        
+        function mainTitleText() {
+        	if (vm.childrenActive) {
+        		return 'Back';
+        	}
+        	
+        	if (vm.active) {
+        		return 'Close menu';
+        	}
+        	
+        	return 'Open menu';
+        }
 
         function delayTransitionButtonState(buttons, animation, delay) {
             $timeout(function() {
@@ -96,4 +109,3 @@
     }
 
 })();
-

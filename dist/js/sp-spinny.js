@@ -4,7 +4,7 @@
     angular.module('signalpath.spinny', []);
 
 })();
-(function() {
+;(function() {
     'use strict';
 
     SpSpinnyController.$inject = ['$document', '$scope', '$timeout'];
@@ -29,6 +29,7 @@
         vm.close = close;
         vm.clickTool = clickTool;
         vm.getButtonClass = getButtonClass;
+        vm.mainTitleText = mainTitleText;
 
         vm.currentButtons = $scope.buttons;
 
@@ -93,6 +94,18 @@
             vm.childrenActive = !!button;
             vm.activeButton = button;
         }
+        
+        function mainTitleText() {
+        	if (vm.childrenActive) {
+        		return 'Back';
+        	}
+        	
+        	if (vm.active) {
+        		return 'Close menu';
+        	}
+        	
+        	return 'Open menu';
+        }
 
         function delayTransitionButtonState(buttons, animation, delay) {
             $timeout(function() {
@@ -103,6 +116,4 @@
     }
 
 })();
-
-
-angular.module("signalpath.spinny").run(["$templateCache", function($templateCache) {$templateCache.put("tool-spinner.directive.html","<div class=\"tool-icon\" ng-click=\"$event.stopPropagation(); tools.toggle()\">\n    <div class=\"icon-button icon-button-large\"\n         ng-class=\"{\n            \'active\': tools.active,\n            \'return-button\': tools.childrenActive}\">\n        <i ng-if=\"!tools.childrenActive\" class=\"fa fa-wrench\"></i>\n        <i ng-if=\"tools.childrenActive\" class=\"fa\" ng-class=\"[\'fa-\' + tools.activeButton.icon]\"></i>\n    </div>\n    <div ng-repeat=\"button in tools.currentButtons\"\n         ng-show=\"tools.active\"\n         ng-click=\"tools.clickTool(button, $event)\"\n         class=\"fan-animate ng-hide icon-button tool-icon-button\"\n         ng-class=\"tools.getButtonClass(button, $index)\">\n        <i class=\"fa fa-{{button.icon}}\"></i></div>\n</div>");}]);
+angular.module("signalpath.spinny").run(["$templateCache", function($templateCache) {$templateCache.put("tool-spinner.directive.html","<div class=\"tool-icon\" ng-click=\"$event.stopPropagation(); tools.toggle()\">\n    <div class=\"icon-button icon-button-large\"\n         title=\"{{tools.mainTitleText()}}\"\n         ng-class=\"{\n            \'active\': tools.active,\n            \'return-button\': tools.childrenActive}\">\n        <i ng-if=\"!tools.childrenActive\" class=\"fa fa-wrench\"></i>\n        <i ng-if=\"tools.childrenActive\" class=\"fa\" ng-class=\"[\'fa-\' + tools.activeButton.icon]\"></i>\n    </div>\n    <div ng-repeat=\"button in tools.currentButtons\"\n         ng-show=\"tools.active\"\n         ng-click=\"tools.clickTool(button, $event)\"\n         class=\"fan-animate ng-hide icon-button tool-icon-button\"\n         ng-class=\"tools.getButtonClass(button, $index)\"\n         title=\"{{button.title}}\">\n        <i class=\"fa fa-{{button.icon}}\"></i></div>\n</div>");}]);

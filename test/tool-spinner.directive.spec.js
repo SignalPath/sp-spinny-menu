@@ -229,6 +229,25 @@
                 vm.currentButtons = [1, 2, 3, 4, 5];
             });
         });
+        
+        describe('vm.mainTitleText', function() {
+            it('should return "Open menu" by default', function() {
+                expect(vm.mainTitleText()).toEqual('Open menu');
+            });
+            
+            it('should return "Close menu" when the main menu is open', function() {
+                vm.active = true;
+                expect(vm.mainTitleText()).toEqual('Close menu');
+            });
+            
+            it('should return "Back" when a child is active', function() {
+                vm.childrenActive = true;
+                expect(vm.mainTitleText()).toEqual('Back');
+                
+                vm.active = true;
+                expect(vm.mainTitleText()).toEqual('Back');
+            });
+        });
 
         beforeEach(module('signalpath.spinny'));
         beforeEach(inject(function(_$controller_) {
