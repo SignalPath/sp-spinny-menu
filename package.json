@@ -1,10 +1,13 @@
 {
   "name": "sp-spinny-menu",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A spinny menu directive for AngularJS",
   "repository": "https://github.com/signalpath/sp-spinny-menu",
-  "license": "MIT License, http://www.opensource.org/licenses/MIT",
+  "license": "MIT",
   "devDependencies": {
+    "angular": "1.5.8",
+    "angular-fontawesome": "1.0.0",
+    "angular-mocks": "1.5.8",
     "del": "1.2.1",
     "event-stream": "3.3.2",
     "gulp": "3.9.1",
@@ -40,7 +43,6 @@
     "yargs": "3.32.0"
   },
   "scripts": {
-    "postinstall": "bower install",
     "prestart": "npm install"
   }
 }
