@@ -1,10 +1,12 @@
 src/
 test/
+bower_components/
 .bowerrc
 .gitignore
 .jshintrc
 .jscsrc
 .npmignore
+.idea
 package.json
 karma.conf.js
 Gulpfile.js
