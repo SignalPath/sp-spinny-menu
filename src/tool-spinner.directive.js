@@ -23,6 +23,7 @@
         vm.clickTool = clickTool;
         vm.getButtonClass = getButtonClass;
         vm.mainTitleText = mainTitleText;
+        vm.animationState = 'closing';
 
         vm.currentButtons = $scope.buttons;
 
@@ -44,10 +45,12 @@
 
         function close() { // jshint ignore:line
             $timeout(function() {
-                vm.animationState = '';
-                vm.active = false;
-                setMainButton(undefined);
-                delayTransitionButtonState($scope.buttons, 'closing');
+                if (vm.active) {
+                    vm.animationState = '';
+                    vm.active = false;
+                    setMainButton(undefined);
+                    delayTransitionButtonState($scope.buttons, 'closing');
+                }
             });
         }
 
