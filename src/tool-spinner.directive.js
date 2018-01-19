@@ -23,9 +23,9 @@
         vm.clickTool = clickTool;
         vm.getButtonClass = getButtonClass;
         vm.mainTitleText = mainTitleText;
-        vm.animationState = 'closing';
 
         vm.currentButtons = $scope.buttons;
+        vm.animationState = 'closing';
 
         $document.on('click', close);
         $scope.$on('$destroy', function() {
