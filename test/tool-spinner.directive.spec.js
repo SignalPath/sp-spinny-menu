@@ -88,38 +88,54 @@
         });
 
         describe('vm.close', function() {
-            it('should set menu to inactive', function() {
-                expect(vm.active).toBeFalsy();
+        	describe('menu is active', function () {
+	            it('should set menu to inactive', function() {
+	                expect(vm.active).toBeFalsy();
+	            });
+
+	            it('should reset main button', function() {
+	                expect(vm.childrenActive).toEqual(false);
+	                expect(vm.activeButton).toBeUndefined();
+	            });
+
+	            it('should call delayTransitionButtonState', function() {
+	                expect(vm.currentButtons).toEqual($scope.buttons);
+	            });
+
+	            it('should initially set animation state to empty', function() {
+	                vm.animationState = 'temp';
+	                $timeout.and.callThrough();
+	                vm.toggle();
+
+	                var callback = $timeout.calls.first().args[0];
+	                callback();
+	                expect(vm.animationState).toEqual('');
+	            });
+
+	            it('should set animation state to closing', function() {
+	                expect(vm.animationState).toEqual('closing');
+	            });
+
+	            beforeEach(function() {
+	            	vm.active = true;
+	                $scope.buttons = [{icon: 'test'}];
+	                var closeCallback = $document.on.calls.mostRecent().args[1];
+	                closeCallback();
+	            });
             });
 
-            it('should reset main button', function() {
-                expect(vm.childrenActive).toEqual(false);
-                expect(vm.activeButton).toBeUndefined();
-            });
+            describe('menu is inactive', function () {
+            	it('should not do anything', function () {
+            		expect(vm.currentButtons).not.toEqual($scope.buttons);
+            	});
 
-            it('should call delayTransitionButtonState', function() {
-                expect(vm.currentButtons).toEqual($scope.buttons);
-            });
-
-            it('should initially set animation state to empty', function() {
-                vm.animationState = 'temp';
-                $timeout.and.callThrough();
-                vm.toggle();
-
-                var callback = $timeout.calls.first().args[0];
-                callback();
-                expect(vm.animationState).toEqual('');
-            });
-
-            it('should set animation state to closing', function() {
-                expect(vm.animationState).toEqual('closing');
-            });
-
-            beforeEach(function() {
-                $scope.buttons = [{icon: 'test'}];
-                var closeCallback = $document.on.calls.mostRecent().args[1];
-                closeCallback();
-            });
+            	beforeEach(function() {
+            		vm.active = false;
+	                $scope.buttons = [{icon: 'test'}];
+	                var closeCallback = $document.on.calls.mostRecent().args[1];
+	                closeCallback();
+            	})
+            })
         });
 
         describe('vm.clickTool', function() {
