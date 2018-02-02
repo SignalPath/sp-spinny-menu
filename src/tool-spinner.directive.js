@@ -25,6 +25,7 @@
         vm.mainTitleText = mainTitleText;
 
         vm.currentButtons = $scope.buttons;
+        vm.animationState = 'closing';
 
         $document.on('click', close);
         $scope.$on('$destroy', function() {
@@ -44,10 +45,12 @@
 
         function close() { // jshint ignore:line
             $timeout(function() {
-                vm.animationState = '';
-                vm.active = false;
-                setMainButton(undefined);
-                delayTransitionButtonState($scope.buttons, 'closing');
+                if (vm.active) {
+                    vm.animationState = '';
+                    vm.active = false;
+                    setMainButton(undefined);
+                    delayTransitionButtonState($scope.buttons, 'closing');
+                }
             });
         }
 
